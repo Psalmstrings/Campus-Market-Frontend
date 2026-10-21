@@ -1,17 +1,18 @@
 import React from 'react';
-import { ShoppingBag, ArrowRight } from 'lucide-react';
+import { ArrowRight } from 'lucide-react';
 import { Link } from 'react-router-dom';
+import BrandLogo from '../components/common/BrandLogo';
 
 export const AboutPage = () => {
   return (
     <div className="content-page">
       <div className="content-page-hero">
-        <div className="content-page-icon primary-bg">
-          <ShoppingBag size={28} />
+        <div style={{ display: 'inline-flex', marginBottom: '1.25rem' }}>
+          <BrandLogo size="xl" />
         </div>
-        <h1 className="content-page-title">About CampusMarket</h1>
+        <h1 className="content-page-title">About BimsMart</h1>
         <p className="content-page-desc">
-          The student-focused marketplace designed to make it easier for students to discover products, services, and opportunities around their campus.
+          The marketplace built for Nigerian campus life — designed to make it simple, safe, and affordable for students to buy, sell, and discover essentials right within their campus communities.
         </p>
       </div>
 
@@ -21,10 +22,10 @@ export const AboutPage = () => {
           Students across Nigerian higher educational institutions face recurring challenges buying textbooks from seniors, passing down hostel appliances, finding trusted roommates, selling electronics before graduating, or discovering campus freelancers and food vendors.
         </p>
         <p>
-          CampusMarket eliminates the friction of noisy WhatsApp groups, expired social media statuses, and untrusted bulletin boards by providing a structured, campus-localized commerce platform built specifically for students.
+          BimsMart eliminates the friction of noisy WhatsApp groups, expired status updates, and untrusted bulletin boards by providing a structured, campus-localized commerce platform built specifically for students.
         </p>
 
-        <h2>Current Campuses</h2>
+        <h2>Current Active Campuses</h2>
         <div className="campus-info-grid">
           <div className="campus-info-card">
             <div className="campus-info-name">University of Lagos</div>
@@ -46,7 +47,7 @@ export const AboutPage = () => {
 
       <div style={{ textAlign: 'center', marginTop: '2.5rem' }}>
         <Link to="/explore" className="btn btn-primary btn-lg">
-          <span>Explore CampusMarket</span>
+          <span>Explore BimsMart</span>
           <ArrowRight size={16} />
         </Link>
       </div>

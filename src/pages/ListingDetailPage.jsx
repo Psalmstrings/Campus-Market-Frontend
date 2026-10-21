@@ -106,7 +106,7 @@ export const ListingDetailPage = () => {
     if (navigator.share) {
       navigator.share({
         title: listing.title,
-        text: `Check out ${listing.title} on CampusMarket for ${formatPrice(listing.price)}!`,
+        text: `Check out ${listing.title} on BimsMart for ${formatPrice(listing.price)}!`,
         url: window.location.href,
       });
     } else {
@@ -325,7 +325,7 @@ export const ListingDetailPage = () => {
         <div>
           <h3 className="detail-safety-title">Safety Reminder for Campus Buyers & Sellers</h3>
           <p className="detail-safety-desc">
-            Stay safe: Meet sellers in public locations (such as the campus library or student union), inspect items before payment, and never share your OTP, ATM PIN, or passwords. CampusMarket does not charge transaction fees or hold payments.
+            Stay safe: Meet sellers in public locations (such as the campus library or student union), inspect items before payment, and never share your OTP, ATM PIN, or passwords. BimsMart does not charge transaction fees or hold payments.
           </p>
         </div>
       </div>

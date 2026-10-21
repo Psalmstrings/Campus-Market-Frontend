@@ -1,6 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { ShoppingBag, ShieldCheck, MapPin } from 'lucide-react';
+import { ShieldCheck, MapPin, Sparkles, PlusCircle } from 'lucide-react';
+import BrandLogo from './BrandLogo';
 
 export const Footer = () => {
   return (
@@ -9,20 +10,15 @@ export const Footer = () => {
         <div className="footer-grid">
           {/* Brand Column */}
           <div>
-            <Link to="/" className="footer-brand-logo">
-              <div className="footer-logo-icon">
-                <ShoppingBag size={20} />
-              </div>
-              <span className="footer-brand-name">
-                Campus<span>Market</span>
-              </span>
+            <Link to="/" className="footer-brand-logo" aria-label="BimsMart Home">
+              <BrandLogo size="md" light={true} subtitleText="Campus Market" />
             </Link>
             <p className="footer-desc">
-              Buy. Sell. Discover. Around Campus. The trusted student-focused marketplace built for universities and polytechnics.
+              The premier campus marketplace connecting students to discover, buy, and sell essentials safely within their university communities.
             </p>
             <div className="footer-trust-badge">
               <ShieldCheck size={16} />
-              <span>Dedicated student peer-to-peer commerce</span>
+              <span>Verified student peer-to-peer commerce</span>
             </div>
           </div>
 
@@ -48,8 +44,9 @@ export const Footer = () => {
                   <span>Lagos State University (LASU)</span>
                 </Link>
               </li>
-              <li style={{ fontSize: '0.75rem', color: '#475569', paddingTop: '0.25rem' }}>
-                More campuses rolling out soon across Nigeria!
+              <li style={{ fontSize: '0.75rem', color: '#94A3B8', paddingTop: '0.375rem', display: 'flex', alignItems: 'center', gap: '0.375rem' }}>
+                <Sparkles size={12} style={{ color: '#F0B429' }} />
+                <span>Expanding to more campus communities</span>
               </li>
             </ul>
           </div>
@@ -60,12 +57,13 @@ export const Footer = () => {
             <ul className="footer-links">
               <li>
                 <Link to="/explore" className="footer-link">
-                  Explore All Listings
+                  Explore Marketplace
                 </Link>
               </li>
               <li>
-                <Link to="/sell" className="footer-link">
-                  Sell Something
+                <Link to="/sell" className="footer-link" style={{ color: '#15966A', fontWeight: '600' }}>
+                  <PlusCircle size={14} />
+                  <span>Start Selling</span>
                 </Link>
               </li>
               <li>
@@ -92,23 +90,23 @@ export const Footer = () => {
               </li>
               <li>
                 <Link to="/about" className="footer-link">
-                  About CampusMarket
+                  About BimsMart
                 </Link>
               </li>
-              <li style={{ color: '#64748B', fontSize: '0.875rem' }}>
-                Inquiries: support@campusmarket.ng
+              <li style={{ color: '#94A3B8', fontSize: '0.8125rem' }}>
+                Campus Inquiries: support@bimsmart.ng
               </li>
-              <li style={{ paddingTop: '0.5rem', fontSize: '0.75rem', color: '#475569', lineHeight: '1.6' }}>
-                Always meet on campus in daylight, inspect items before payment, and never share banking OTPs.
+              <li style={{ paddingTop: '0.5rem', fontSize: '0.75rem', color: '#64748B', lineHeight: '1.6' }}>
+                Tip: Always meet on campus in daylight, inspect items before payment, and never disclose bank OTPs.
               </li>
             </ul>
           </div>
         </div>
 
         <div className="footer-bottom">
-          <p>© 2026 CampusMarket. Built for Nigerian students.</p>
+          <p>© 2026 BimsMart. The marketplace built for campus life.</p>
           <div>
-            <span>Psalmstrings Digital</span>
+            <span>Community • Trust • Value</span>
           </div>
         </div>
       </div>

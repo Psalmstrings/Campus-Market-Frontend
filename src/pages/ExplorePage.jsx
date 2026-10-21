@@ -134,9 +134,10 @@ export const ExplorePage = () => {
       {/* Top Header & Search Bar */}
       <div className="explore-header">
         <div>
-          <h1 className="explore-title">Explore Marketplace</h1>
+          <h1 className="explore-title">Explore the Marketplace</h1>
           <p className="explore-count">
-            {loading ? 'Finding listings...' : `Showing ${pagination.totalListings} listings`}
+            Discover useful finds, compare listings, and explore products available from your campus community.
+            {!loading && <span className="explore-badge-count">{pagination.totalListings} items listed</span>}
           </p>
         </div>
 

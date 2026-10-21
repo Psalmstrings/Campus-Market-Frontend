@@ -1,8 +1,9 @@
 import React, { useState } from 'react';
 import { Link, useNavigate, useLocation } from 'react-router-dom';
-import { ShoppingBag, Lock, Mail } from 'lucide-react';
+import { Lock, Mail } from 'lucide-react';
 import { useAuth } from '../context/AuthContext';
 import { useToast } from '../context/ToastContext';
+import BrandLogo from '../components/common/BrandLogo';
 
 export const LoginPage = () => {
   const { login } = useAuth();
@@ -57,10 +58,10 @@ export const LoginPage = () => {
   return (
     <div className="auth-page">
       <div className="auth-logo-wrap">
-        <Link to="/" className="auth-logo-icon">
-          <ShoppingBag size={28} />
+        <Link to="/" style={{ display: 'inline-flex', marginBottom: '1rem', textDecoration: 'none' }}>
+          <BrandLogo size="lg" />
         </Link>
-        <h2 className="auth-title">Welcome back to CampusMarket</h2>
+        <h2 className="auth-title">Welcome back to BimsMart</h2>
         <p className="auth-subtitle">
           Buy, sell, and discover student deals across Nigerian campuses
         </p>

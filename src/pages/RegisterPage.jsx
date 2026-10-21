@@ -1,9 +1,10 @@
 import React, { useState, useEffect } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
-import { ShoppingBag, Lock, Mail, User, Phone, Building, GraduationCap } from 'lucide-react';
+import { Lock, Mail, User, Phone, Building, GraduationCap } from 'lucide-react';
 import { useAuth } from '../context/AuthContext';
 import { getCampuses } from '../services/campusService';
 import { useToast } from '../context/ToastContext';
+import BrandLogo from '../components/common/BrandLogo';
 
 export const RegisterPage = () => {
   const { register } = useAuth();
@@ -70,7 +71,7 @@ export const RegisterPage = () => {
     try {
       const res = await register(formData);
       if (res.success) {
-        showSuccess('Account created successfully! Welcome to CampusMarket.');
+        showSuccess('Account created successfully! Welcome to BimsMart.');
         navigate('/explore');
       }
     } catch (err) {
@@ -83,12 +84,12 @@ export const RegisterPage = () => {
   return (
     <div className="auth-page">
       <div className="auth-logo-wrap">
-        <Link to="/" className="auth-logo-icon">
-          <ShoppingBag size={28} />
+        <Link to="/" style={{ display: 'inline-flex', marginBottom: '1rem', textDecoration: 'none' }}>
+          <BrandLogo size="lg" />
         </Link>
         <h2 className="auth-title">Create Your Student Account</h2>
         <p className="auth-subtitle">
-          Join verified peers buying and selling across your campus.
+          Join verified peers buying and selling across your campus with BimsMart.
         </p>
       </div>
 

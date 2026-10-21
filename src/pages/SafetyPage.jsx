@@ -15,7 +15,7 @@ const SAFETY_TIPS = [
   {
     icon: Lock,
     title: 'Never Disclose Banking OTPs or PINs',
-    desc: 'CampusMarket staff will NEVER ask for your bank OTP, ATM PIN, online banking password, or card security codes under any circumstances.',
+    desc: 'BimsMart staff will NEVER ask for your bank OTP, ATM PIN, online banking password, or card security codes under any circumstances.',
   },
   {
     icon: AlertOctagon,
@@ -60,7 +60,7 @@ export const SafetyPage = () => {
       </div>
 
       <div className="disclaimer-box">
-        <strong>Disclaimer:</strong> CampusMarket provides a peer-to-peer discovery marketplace connecting students across higher institutions. Users are independently responsible for verifying counterparties, inspecting goods, and completing transactions in safe environments.
+        <strong>Disclaimer:</strong> BimsMart provides a peer-to-peer discovery marketplace connecting students across higher institutions. Users are independently responsible for verifying counterparties, inspecting goods, and completing transactions in safe environments.
       </div>
     </div>
   );

@@ -16,6 +16,7 @@ import {
 } from 'lucide-react';
 import { useAuth } from '../../context/AuthContext';
 import { getCampuses } from '../../services/campusService';
+import BrandLogo from './BrandLogo';
 
 export const Navbar = () => {
   const { user, isAuthenticated, isAdmin, logout, selectedCampus, setSelectedCampus } = useAuth();
@@ -69,18 +70,8 @@ export const Navbar = () => {
         <div className="navbar-row">
           {/* Brand Logo & Campus Selector */}
           <div className="navbar-brand">
-            <Link to="/" className="flex items-center gap-2">
-              <div className="navbar-logo-icon">
-                <ShoppingBag size={20} />
-              </div>
-              <div className="navbar-brand-text">
-                <span className="navbar-brand-name">
-                  Campus<span>Market</span>
-                </span>
-                <span className="navbar-brand-sub show-tablet">
-                  Nigerian Student Hub
-                </span>
-              </div>
+            <Link to="/" className="flex items-center gap-2" aria-label="BimsMart Home">
+              <BrandLogo size="md" subtitleText="Campus Hub" />
             </Link>
 
             {/* Campus Selector Badge */}
@@ -150,13 +141,13 @@ export const Navbar = () => {
               to="/explore"
               className={`nav-link ${location.pathname === '/explore' ? 'active' : ''}`}
             >
-              Explore
+              Explore Marketplace
             </Link>
             <Link
               to="/about"
               className={`nav-link ${location.pathname === '/about' ? 'active' : ''}`}
             >
-              About
+              About BimsMart
             </Link>
             <Link
               to="/safety"
@@ -171,7 +162,7 @@ export const Navbar = () => {
             {/* Sell CTA button */}
             <Link to="/sell" className="navbar-sell-btn">
               <PlusCircle size={16} />
-              <span>Sell Something</span>
+              <span>Sell on Campus</span>
             </Link>
 
             {isAuthenticated ? (
@@ -262,7 +253,8 @@ export const Navbar = () => {
                 </div>
               </>
             ) : (
-              <div className="navbar-auth">
+              /* Desktop-only auth buttons — hidden on mobile (use hamburger instead) */
+              <div className="navbar-auth navbar-auth-desktop">
                 <Link to="/login" className="navbar-login-btn">
                   Log In
                 </Link>
@@ -301,11 +293,12 @@ export const Navbar = () => {
         {/* Mobile slide-down menu */}
         {mobileMenuOpen && (
           <div className="navbar-mobile-menu">
+            {/* Nav links */}
             <Link to="/explore" className="mobile-nav-link">
               Explore Marketplace
             </Link>
             <Link to="/about" className="mobile-nav-link">
-              About CampusMarket
+              About BimsMart
             </Link>
             <Link to="/safety" className="mobile-nav-link">
               Safety Guidelines
@@ -313,10 +306,58 @@ export const Navbar = () => {
             <Link to="/sell" className="mobile-nav-link primary">
               + Sell an Item
             </Link>
+
             {isAdmin && (
               <Link to="/admin" className="mobile-nav-link" style={{ color: 'var(--primary)', fontWeight: '700' }}>
                 Admin Dashboard
               </Link>
+            )}
+
+            {/* Auth section inside hamburger */}
+            {isAuthenticated ? (
+              <div className="mobile-menu-auth-section">
+                <div className="mobile-menu-auth-user">
+                  <div className="mobile-menu-auth-avatar">
+                    {user?.profileImage ? (
+                      <img src={user.profileImage} alt={user.firstName} />
+                    ) : (
+                      <span>{user?.firstName?.[0]}{user?.lastName?.[0]}</span>
+                    )}
+                  </div>
+                  <div>
+                    <div className="mobile-menu-auth-name">{user?.firstName} {user?.lastName}</div>
+                    <div className="mobile-menu-auth-email">{user?.email}</div>
+                  </div>
+                </div>
+                <div className="mobile-menu-auth-links">
+                  <Link to="/dashboard" className="mobile-nav-link" style={{ display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
+                    <LayoutDashboard size={16} /> Dashboard
+                  </Link>
+                  <Link to="/profile" className="mobile-nav-link" style={{ display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
+                    <User size={16} /> My Profile
+                  </Link>
+                  <Link to="/favorites" className="mobile-nav-link" style={{ display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
+                    <Heart size={16} /> Saved Items
+                  </Link>
+                </div>
+                <button
+                  type="button"
+                  onClick={logout}
+                  className="mobile-nav-logout-btn"
+                >
+                  <LogOut size={16} />
+                  <span>Log Out</span>
+                </button>
+              </div>
+            ) : (
+              <div className="mobile-menu-auth-section">
+                <Link to="/login" className="mobile-nav-login-btn">
+                  Log In
+                </Link>
+                <Link to="/register" className="mobile-nav-signup-btn">
+                  Create Account
+                </Link>
+              </div>
             )}
           </div>
         )}

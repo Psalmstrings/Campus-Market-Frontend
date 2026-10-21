@@ -30,7 +30,7 @@ export const AdminSidebar = () => {
         </div>
         <div>
           <h2 className="admin-brand-title">Admin Portal</h2>
-          <span className="admin-brand-sub">CampusMarket Moderation</span>
+          <span className="admin-brand-sub">BimsMart Moderation</span>
         </div>
       </div>
 
