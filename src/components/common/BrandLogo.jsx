@@ -38,7 +38,8 @@ export const BrandLogo = ({
         viewBox="0 0 260 56"
         fill="none"
         xmlns="http://www.w3.org/2000/svg"
-        style={{ display: 'block', height: `${h}px`, width: 'auto' }}
+        className="brand-logo-svg"
+        style={{ display: 'block', height: `${h}px`, width: 'auto', maxWidth: '100%' }}
         aria-label="CampusMart"
       >
         {/* Warm Gold mortarboard/accent canopy over 'Mart' */}

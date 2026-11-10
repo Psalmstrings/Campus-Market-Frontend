@@ -25,13 +25,19 @@ export const AdminSidebar = () => {
     <aside className="admin-sidebar">
       {/* Brand Header */}
       <div className="admin-sidebar-brand">
-        <div className="admin-brand-icon">
-          <ShieldCheck size={20} />
+        <div style={{ display: 'flex', alignItems: 'center', gap: '0.75rem' }}>
+          <div className="admin-brand-icon">
+            <ShieldCheck size={20} />
+          </div>
+          <div>
+            <h2 className="admin-brand-title">Admin Portal</h2>
+            <span className="admin-brand-sub">CampusMart Moderation</span>
+          </div>
         </div>
-        <div>
-          <h2 className="admin-brand-title">Admin Portal</h2>
-          <span className="admin-brand-sub">BimsMart Moderation</span>
-        </div>
+        <Link to="/" className="admin-back-link mobile-only-back" title="Return to Marketplace">
+          <ArrowLeft size={16} />
+          <span>Exit Admin</span>
+        </Link>
       </div>
 
       {/* Navigation */}

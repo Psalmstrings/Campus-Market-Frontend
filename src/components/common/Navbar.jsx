@@ -66,9 +66,9 @@ export const Navbar = () => {
   return (
     <header className="navbar">
       {user && !user.isVerified && user.role !== 'admin' && (
-        <div style={{ backgroundColor: '#d97706', color: '#ffffff', fontSize: '0.8125rem', padding: '0.375rem 1rem', display: 'flex', alignItems: 'center', justifyContent: 'space-between', fontWeight: 500 }}>
-          <span>⚠️ Please verify your student email address to unlock verified student badges and post listings.</span>
-          <Link to="/verify-email" style={{ color: '#ffffff', textDecoration: 'underline', fontWeight: 700, marginLeft: '0.75rem', whiteSpace: 'nowrap' }}>
+        <div className="navbar-verify-banner">
+          <span>⚠️ Please verify your student email to post listings and unlock verified badges.</span>
+          <Link to="/verify-email" className="navbar-verify-link">
             Verify Now &rarr;
           </Link>
         </div>
