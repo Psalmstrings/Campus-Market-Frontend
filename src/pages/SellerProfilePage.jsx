@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { useParams, Link } from 'react-router-dom';
-import { CheckCircle2, MapPin, Calendar, ArrowLeft, Package, User } from 'lucide-react';
+import { CheckCircle2, MapPin, Calendar, ArrowLeft, Package } from 'lucide-react';
 import api from '../services/api';
 import ListingCard from '../components/listing/ListingCard';
 import EmptyState from '../components/common/EmptyState';

@@ -61,7 +61,7 @@ export const LoginPage = () => {
         <Link to="/" style={{ display: 'inline-flex', marginBottom: '1rem', textDecoration: 'none' }}>
           <BrandLogo size="lg" />
         </Link>
-        <h2 className="auth-title">Welcome back to BimsMart</h2>
+        <h2 className="auth-title">Welcome back to CampusMart</h2>
         <p className="auth-subtitle">
           Buy, sell, and discover student deals across Nigerian campuses
         </p>
@@ -85,8 +85,13 @@ export const LoginPage = () => {
           </div>
 
           <div>
-            <label className="form-label">Password</label>
-            <div className="form-input-icon">
+            <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
+              <label className="form-label" style={{ marginBottom: 0 }}>Password</label>
+              <Link to="/forgot-password" style={{ fontSize: '0.8125rem', color: '#0284c7', textDecoration: 'none' }}>
+                Forgot password?
+              </Link>
+            </div>
+            <div className="form-input-icon" style={{ marginTop: '0.375rem' }}>
               <Lock size={16} className="icon" />
               <input
                 type="password"

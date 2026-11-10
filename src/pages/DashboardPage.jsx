@@ -188,7 +188,7 @@ export const DashboardPage = () => {
           <div>
             <h2 className="dashboard-listings-title">My Listings</h2>
             <p className="dashboard-listings-sub">
-              Overview of everything you have posted on BimsMart
+              Overview of everything you have posted on CampusMart
             </p>
           </div>
         </div>

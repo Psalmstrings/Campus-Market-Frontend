@@ -20,6 +20,9 @@ import FavoritesPage from './pages/FavoritesPage';
 import SellerProfilePage from './pages/SellerProfilePage';
 import LoginPage from './pages/LoginPage';
 import RegisterPage from './pages/RegisterPage';
+import VerifyEmailPage from './pages/VerifyEmailPage';
+import ForgotPasswordPage from './pages/ForgotPasswordPage';
+import ResetPasswordPage from './pages/ResetPasswordPage';
 import AboutPage from './pages/AboutPage';
 import SafetyPage from './pages/SafetyPage';
 import NotFoundPage from './pages/NotFoundPage';
@@ -62,6 +65,9 @@ export function App() {
               <Route path="/safety" element={<SafetyPage />} />
               <Route path="/login" element={<LoginPage />} />
               <Route path="/register" element={<RegisterPage />} />
+              <Route path="/verify-email" element={<VerifyEmailPage />} />
+              <Route path="/forgot-password" element={<ForgotPasswordPage />} />
+              <Route path="/reset-password/:token" element={<ResetPasswordPage />} />
 
               {/* Protected User Routes */}
               <Route

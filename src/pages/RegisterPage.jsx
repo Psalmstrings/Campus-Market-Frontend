@@ -71,7 +71,7 @@ export const RegisterPage = () => {
     try {
       const res = await register(formData);
       if (res.success) {
-        showSuccess('Account created successfully! Welcome to BimsMart.');
+        showSuccess('Account created successfully! Welcome to CampusMart.');
         navigate('/explore');
       }
     } catch (err) {
@@ -89,7 +89,7 @@ export const RegisterPage = () => {
         </Link>
         <h2 className="auth-title">Create Your Student Account</h2>
         <p className="auth-subtitle">
-          Join verified peers buying and selling across your campus with BimsMart.
+          Join verified peers buying and selling across your campus with CampusMart.
         </p>
       </div>
 

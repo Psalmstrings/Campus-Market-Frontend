@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { Link, useNavigate, useLocation } from 'react-router-dom';
 import {
-  ShoppingBag,
   Search,
   PlusCircle,
   Heart,
@@ -66,11 +65,19 @@ export const Navbar = () => {
 
   return (
     <header className="navbar">
+      {user && !user.isVerified && user.role !== 'admin' && (
+        <div style={{ backgroundColor: '#d97706', color: '#ffffff', fontSize: '0.8125rem', padding: '0.375rem 1rem', display: 'flex', alignItems: 'center', justifyContent: 'space-between', fontWeight: 500 }}>
+          <span>⚠️ Please verify your student email address to unlock verified student badges and post listings.</span>
+          <Link to="/verify-email" style={{ color: '#ffffff', textDecoration: 'underline', fontWeight: 700, marginLeft: '0.75rem', whiteSpace: 'nowrap' }}>
+            Verify Now &rarr;
+          </Link>
+        </div>
+      )}
       <div className="navbar-inner">
         <div className="navbar-row">
           {/* Brand Logo & Campus Selector */}
           <div className="navbar-brand">
-            <Link to="/" className="flex items-center gap-2" aria-label="BimsMart Home">
+            <Link to="/" className="flex items-center gap-2" aria-label="CampusMart Home">
               <BrandLogo size="md" subtitleText="Campus Hub" />
             </Link>
 
@@ -147,7 +154,7 @@ export const Navbar = () => {
               to="/about"
               className={`nav-link ${location.pathname === '/about' ? 'active' : ''}`}
             >
-              About BimsMart
+              About CampusMart
             </Link>
             <Link
               to="/safety"
@@ -298,7 +305,7 @@ export const Navbar = () => {
               Explore Marketplace
             </Link>
             <Link to="/about" className="mobile-nav-link">
-              About BimsMart
+              About CampusMart
             </Link>
             <Link to="/safety" className="mobile-nav-link">
               Safety Guidelines

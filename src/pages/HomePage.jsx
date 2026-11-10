@@ -406,7 +406,7 @@ export const HomePage = () => {
                 Your next customer could be right on campus.
               </h2>
               <p className="seller-desc">
-                Have books you no longer need, gadgets to sell, fashion items to share, or products other students might love? Put your listings in front of your campus community with BimsMart.
+                Have books you no longer need, gadgets to sell, fashion items to share, or products other students might love? Put your listings in front of your campus community with CampusMart.
               </p>
 
               <div className="seller-benefits-list">
@@ -479,7 +479,7 @@ export const HomePage = () => {
           ──────────────────────────────────────────────────────── */}
       <section className="how-section">
         <div className="container">
-          <h2 className="how-title">How BimsMart Works</h2>
+          <h2 className="how-title">How CampusMart Works</h2>
           <p className="how-subtitle">
             A transparent and dependable peer-to-peer experience designed for campus life.
           </p>
@@ -583,7 +583,7 @@ export const HomePage = () => {
           <div>
             <h2 className="section-title">Made for the way campus moves.</h2>
             <p className="section-desc">
-              From lecture notes and textbooks to everyday essentials and personal finds, BimsMart brings campus buying and selling into one convenient place.
+              From lecture notes and textbooks to everyday essentials and personal finds, CampusMart brings campus buying and selling into one convenient place.
             </p>
           </div>
           <Link to="/explore" className="section-link">

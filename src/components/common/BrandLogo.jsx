@@ -1,7 +1,7 @@
 import React from 'react';
 
 /**
- * Official BimsMart Brand Logo Component
+ * Official CampusMart Brand Logo Component
  * Combines Deep Navy typography (#142B4A) with the Warm Gold (#F0B429) accent cap.
  */
 export const BrandLogo = ({
@@ -35,34 +35,34 @@ export const BrandLogo = ({
     >
       <svg
         height={h}
-        viewBox="0 0 240 56"
+        viewBox="0 0 260 56"
         fill="none"
         xmlns="http://www.w3.org/2000/svg"
         style={{ display: 'block', height: `${h}px`, width: 'auto' }}
-        aria-label="BimsMart"
+        aria-label="CampusMart"
       >
-        {/* Warm Gold mortarboard/accent canopy over 'art' */}
+        {/* Warm Gold mortarboard/accent canopy over 'Mart' */}
         <path
-          d="M172 13 C172 13 182 8 206 8 C226 8 234 13 234 13 C235.5 13.7 236 15.5 235.2 17 C234.5 18.2 233.2 19 231.8 19 L174.2 19 C172.8 19 171.5 18.2 170.8 17 C170 15.5 170.5 13.7 172 13 Z"
+          d="M188 12 C188 12 198 7 222 7 C242 7 250 12 250 12 C251.5 12.7 252 14.5 251.2 16 C250.5 17.2 249.2 18 247.8 18 L190.2 18 C188.8 18 187.5 17.2 186.8 16 C186 14.5 186.5 12.7 188 12 Z"
           fill={goldColor}
         />
-        {/* Gold curved modern accent cap block as in the official brand image */}
+        {/* Gold curved modern accent cap block */}
         <path
-          d="M174 7 H224 C231.7 7 238 13.3 238 21 V22 H174 V7 Z"
+          d="M190 6 H240 C247.7 6 254 12.3 254 20 V21 H190 V6 Z"
           fill={goldColor}
         />
 
-        {/* Text 'BimsMart' */}
+        {/* Text 'CampusMart' */}
         <text
           x="0"
           y="42"
           fill={navyColor}
           fontFamily="'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif"
           fontWeight="900"
-          fontSize="36"
+          fontSize="34"
           letterSpacing="-0.03em"
         >
-          Bims<tspan fill={navyColor}>Mart</tspan>
+          Campus<tspan fill={goldColor}>Mart</tspan>
         </text>
       </svg>
 

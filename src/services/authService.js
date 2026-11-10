@@ -19,3 +19,28 @@ export const updateProfile = async (profileData) => {
   const response = await api.put('/api/auth/profile', profileData);
   return response.data;
 };
+
+export const changePassword = async (passwordData) => {
+  const response = await api.put('/api/auth/change-password', passwordData);
+  return response.data;
+};
+
+export const verifyEmail = async (token) => {
+  const response = await api.post('/api/auth/verify-email', { token });
+  return response.data;
+};
+
+export const resendVerification = async (email) => {
+  const response = await api.post('/api/auth/resend-verification', { email });
+  return response.data;
+};
+
+export const forgotPassword = async (email) => {
+  const response = await api.post('/api/auth/forgot-password', { email });
+  return response.data;
+};
+
+export const resetPassword = async (token, passwordData) => {
+  const response = await api.post(`/api/auth/reset-password/${token}`, passwordData);
+  return response.data;
+};

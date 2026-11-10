@@ -10,7 +10,7 @@ export const AboutPage = () => {
         <div style={{ display: 'inline-flex', marginBottom: '1.25rem' }}>
           <BrandLogo size="xl" />
         </div>
-        <h1 className="content-page-title">About BimsMart</h1>
+        <h1 className="content-page-title">About CampusMart</h1>
         <p className="content-page-desc">
           The marketplace built for Nigerian campus life — designed to make it simple, safe, and affordable for students to buy, sell, and discover essentials right within their campus communities.
         </p>
@@ -22,7 +22,7 @@ export const AboutPage = () => {
           Students across Nigerian higher educational institutions face recurring challenges buying textbooks from seniors, passing down hostel appliances, finding trusted roommates, selling electronics before graduating, or discovering campus freelancers and food vendors.
         </p>
         <p>
-          BimsMart eliminates the friction of noisy WhatsApp groups, expired status updates, and untrusted bulletin boards by providing a structured, campus-localized commerce platform built specifically for students.
+          CampusMart eliminates the friction of noisy WhatsApp groups, expired status updates, and untrusted bulletin boards by providing a structured, campus-localized commerce platform built specifically for students.
         </p>
 
         <h2>Current Active Campuses</h2>
@@ -47,7 +47,7 @@ export const AboutPage = () => {
 
       <div style={{ textAlign: 'center', marginTop: '2.5rem' }}>
         <Link to="/explore" className="btn btn-primary btn-lg">
-          <span>Explore BimsMart</span>
+          <span>Explore CampusMart</span>
           <ArrowRight size={16} />
         </Link>
       </div>

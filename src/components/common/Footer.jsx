@@ -10,7 +10,7 @@ export const Footer = () => {
         <div className="footer-grid">
           {/* Brand Column */}
           <div>
-            <Link to="/" className="footer-brand-logo" aria-label="BimsMart Home">
+            <Link to="/" className="footer-brand-logo" aria-label="CampusMart Home">
               <BrandLogo size="md" light={true} subtitleText="Campus Market" />
             </Link>
             <p className="footer-desc">
@@ -90,11 +90,11 @@ export const Footer = () => {
               </li>
               <li>
                 <Link to="/about" className="footer-link">
-                  About BimsMart
+                  About CampusMart
                 </Link>
               </li>
               <li style={{ color: '#94A3B8', fontSize: '0.8125rem' }}>
-                Campus Inquiries: support@bimsmart.ng
+                Campus Inquiries: support@campusmarket.ng
               </li>
               <li style={{ paddingTop: '0.5rem', fontSize: '0.75rem', color: '#64748B', lineHeight: '1.6' }}>
                 Tip: Always meet on campus in daylight, inspect items before payment, and never disclose bank OTPs.
@@ -104,7 +104,7 @@ export const Footer = () => {
         </div>
 
         <div className="footer-bottom">
-          <p>© 2026 BimsMart. The marketplace built for campus life.</p>
+          <p>© 2026 CampusMart. The marketplace built for campus life.</p>
           <div>
             <span>Community • Trust • Value</span>
           </div>

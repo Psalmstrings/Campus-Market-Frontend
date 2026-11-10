@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
-import { CheckCircle2, Calendar, Building, GraduationCap } from 'lucide-react';
+import { CheckCircle2, Calendar, Building, GraduationCap, Lock, KeyRound } from 'lucide-react';
 import { useAuth } from '../context/AuthContext';
-import { updateProfile } from '../services/authService';
+import { updateProfile, changePassword } from '../services/authService';
 import { useToast } from '../context/ToastContext';
 import { formatDate } from '../utils/formatDate';
 import api from '../services/api';
@@ -21,6 +21,52 @@ export const ProfilePage = () => {
 
   const [saving, setSaving] = useState(false);
   const [requestingVerify, setRequestingVerify] = useState(false);
+
+  // Password change state
+  const [passwordData, setPasswordData] = useState({
+    currentPassword: '',
+    newPassword: '',
+    confirmNewPassword: '',
+  });
+  const [changingPassword, setChangingPassword] = useState(false);
+
+  const handlePasswordInput = (e) => {
+    const { name, value } = e.target;
+    setPasswordData((prev) => ({ ...prev, [name]: value }));
+  };
+
+  const handlePasswordSubmit = async (e) => {
+    e.preventDefault();
+    if (!passwordData.currentPassword || !passwordData.newPassword) {
+      showError('Please provide both current and new passwords');
+      return;
+    }
+    if (passwordData.newPassword.length < 6) {
+      showError('New password must be at least 6 characters');
+      return;
+    }
+    if (passwordData.newPassword !== passwordData.confirmNewPassword) {
+      showError('New passwords do not match');
+      return;
+    }
+
+    setChangingPassword(true);
+    try {
+      const res = await changePassword(passwordData);
+      if (res.success) {
+        showSuccess('Password updated successfully!');
+        setPasswordData({
+          currentPassword: '',
+          newPassword: '',
+          confirmNewPassword: '',
+        });
+      }
+    } catch (err) {
+      showError(err.response?.data?.message || 'Failed to update password');
+    } finally {
+      setChangingPassword(false);
+    }
+  };
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -235,6 +281,78 @@ export const ProfilePage = () => {
                 className="btn btn-primary btn-lg"
               >
                 {saving ? 'Saving...' : 'Save Profile'}
+              </button>
+            </div>
+          </form>
+        </div>
+
+        {/* Change Password Card */}
+        <div className="card">
+          <form onSubmit={handlePasswordSubmit} className="card-body" style={{ display: 'flex', flexDirection: 'column', gap: '1.25rem' }}>
+            <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', paddingBottom: '0.75rem', borderBottom: '1px solid var(--border)' }}>
+              <KeyRound size={20} className="text-primary" />
+              <h3 style={{ fontSize: '1.125rem', fontWeight: '800', color: 'var(--text-dark)' }}>
+                Security & Password Change
+              </h3>
+            </div>
+
+            <div className="form-group">
+              <label className="form-label">Current Password</label>
+              <div className="form-input-icon">
+                <Lock size={16} className="icon" />
+                <input
+                  type="password"
+                  name="currentPassword"
+                  placeholder="Enter current password"
+                  value={passwordData.currentPassword}
+                  onChange={handlePasswordInput}
+                  className="form-input"
+                  required
+                />
+              </div>
+            </div>
+
+            <div className="form-row">
+              <div className="form-group">
+                <label className="form-label">New Password (min 6 characters)</label>
+                <div className="form-input-icon">
+                  <Lock size={16} className="icon" />
+                  <input
+                    type="password"
+                    name="newPassword"
+                    placeholder="Enter new password"
+                    value={passwordData.newPassword}
+                    onChange={handlePasswordInput}
+                    className="form-input"
+                    required
+                  />
+                </div>
+              </div>
+
+              <div className="form-group">
+                <label className="form-label">Confirm New Password</label>
+                <div className="form-input-icon">
+                  <Lock size={16} className="icon" />
+                  <input
+                    type="password"
+                    name="confirmNewPassword"
+                    placeholder="Confirm new password"
+                    value={passwordData.confirmNewPassword}
+                    onChange={handlePasswordInput}
+                    className="form-input"
+                    required
+                  />
+                </div>
+              </div>
+            </div>
+
+            <div style={{ display: 'flex', justifyContent: 'flex-end', paddingTop: '0.5rem' }}>
+              <button
+                type="submit"
+                disabled={changingPassword}
+                className="btn btn-secondary btn-lg"
+              >
+                {changingPassword ? 'Updating Password...' : 'Update Password'}
               </button>
             </div>
           </form>

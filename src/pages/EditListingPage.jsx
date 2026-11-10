@@ -164,6 +164,23 @@ export const EditListingPage = () => {
 
           <div className="form-row" style={{ marginBottom: '1rem' }}>
             <div className="form-group">
+              <label className="form-label">Campus</label>
+              <select
+                name="campus"
+                value={formData.campus}
+                onChange={handleChange}
+                className="form-select"
+                required
+              >
+                {campuses.map((c) => (
+                  <option key={c._id} value={c._id}>
+                    {c.shortName} — {c.name}
+                  </option>
+                ))}
+              </select>
+            </div>
+
+            <div className="form-group">
               <label className="form-label">Category</label>
               <select
                 name="category"
