@@ -1,12 +1,15 @@
 import React, { useState } from 'react';
-import { useParams, useNavigate, Link } from 'react-router-dom';
-import { Lock, Loader2, CheckCircle2, ArrowRight } from 'lucide-react';
+import { useParams, useSearchParams, useNavigate, Link } from 'react-router-dom';
+import { Lock, Loader2, CheckCircle2, ArrowRight, AlertTriangle } from 'lucide-react';
 import { resetPassword } from '../services/authService';
 import { useAuth } from '../context/AuthContext';
 import { useToast } from '../context/ToastContext';
 
 export default function ResetPasswordPage() {
-  const { token } = useParams();
+  const { token: pathToken } = useParams();
+  const [searchParams] = useSearchParams();
+  const token = pathToken || searchParams.get('token');
+
   const [password, setPassword] = useState('');
   const [confirmPassword, setConfirmPassword] = useState('');
   const [loading, setLoading] = useState(false);
@@ -18,6 +21,11 @@ export default function ResetPasswordPage() {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+
+    if (!token) {
+      addToast('Reset token is missing from the link. Please request a new password reset.', 'error');
+      return;
+    }
 
     if (password.length < 6) {
       addToast('Password must be at least 6 characters long', 'error');
@@ -49,6 +57,33 @@ export default function ResetPasswordPage() {
       setLoading(false);
     }
   };
+
+  if (!token) {
+    return (
+      <div className="min-h-[75vh] flex items-center justify-center px-4 py-12">
+        <div className="w-full max-w-md bg-white rounded-2xl shadow-sm border border-slate-200 p-8 text-center">
+          <div className="w-14 h-14 bg-amber-100 text-amber-600 rounded-full flex items-center justify-center mx-auto mb-4">
+            <AlertTriangle className="w-8 h-8" />
+          </div>
+          <h1 className="text-xl font-bold text-slate-900 mb-2">Reset Token Required</h1>
+          <p className="text-slate-600 text-sm mb-6 leading-relaxed">
+            Please use the password reset link that was sent to your email address, or request a new one below.
+          </p>
+          <Link
+            to="/forgot-password"
+            className="w-full inline-flex items-center justify-center gap-2 py-2.5 px-4 bg-primary-600 hover:bg-primary-700 text-white font-medium rounded-lg text-sm transition"
+          >
+            Request Password Reset Link
+          </Link>
+          <div className="mt-4">
+            <Link to="/login" className="text-xs text-slate-500 hover:text-slate-800">
+              Return to Login
+            </Link>
+          </div>
+        </div>
+      </div>
+    );
+  }
 
   return (
     <div className="min-h-[75vh] flex items-center justify-center px-4 py-12">

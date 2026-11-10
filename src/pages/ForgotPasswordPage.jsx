@@ -62,7 +62,7 @@ export default function ForgotPasswordPage() {
             </div>
             <h1 className="text-2xl font-bold text-slate-900 mb-2">Reset Password</h1>
             <p className="text-slate-600 text-sm mb-6">
-              Enter your student email address and we'll send you a link to reset your password.
+              Enter your account email address and we'll send you a link to reset your password.
             </p>
 
             <form onSubmit={handleSubmit} className="space-y-4">
@@ -74,10 +74,13 @@ export default function ForgotPasswordPage() {
                   type="email"
                   value={email}
                   onChange={(e) => setEmail(e.target.value)}
-                  placeholder="e.g. tunde@unilag.edu.ng"
+                  placeholder="e.g. you@gmail.com, you@yahoo.com, or student@unilag.edu.ng"
                   required
                   className="w-full px-4 py-2.5 text-sm border border-slate-300 rounded-lg focus:ring-2 focus:ring-primary-500 focus:outline-none"
                 />
+                <span className="text-xs text-slate-500 mt-1 block">
+                  All registered email providers accepted (Gmail, Yahoo, Outlook, etc.)
+                </span>
               </div>
 
               <button

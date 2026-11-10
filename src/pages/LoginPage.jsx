@@ -70,12 +70,12 @@ export const LoginPage = () => {
       <div className="auth-card">
         <form onSubmit={handleSubmit} style={{ display: 'flex', flexDirection: 'column', gap: '1rem' }}>
           <div>
-            <label className="form-label">Student / Vendor Email</label>
+            <label className="form-label">Email Address</label>
             <div className="form-input-icon">
               <Mail size={16} className="icon" />
               <input
                 type="email"
-                placeholder="e.g. tunde@unilag.edu.ng"
+                placeholder="e.g. you@gmail.com, you@yahoo.com, or student@unilag.edu.ng"
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
                 className="form-input"

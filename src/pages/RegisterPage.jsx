@@ -71,8 +71,8 @@ export const RegisterPage = () => {
     try {
       const res = await register(formData);
       if (res.success) {
-        showSuccess('Account created successfully! Welcome to CampusMart.');
-        navigate('/explore');
+        showSuccess('Account created! A confirmation email has been sent to your inbox.');
+        navigate(`/verify-email?email=${encodeURIComponent(formData.email)}`);
       }
     } catch (err) {
       showError(err.response?.data?.message || 'Registration failed');
@@ -139,13 +139,16 @@ export const RegisterPage = () => {
                 <input
                   type="email"
                   name="email"
-                  placeholder="e.g. tunde@unilag.edu.ng"
+                  placeholder="e.g. you@gmail.com, you@yahoo.com, or student@unilag.edu.ng"
                   value={formData.email}
                   onChange={handleChange}
                   className="form-input"
                   required
                 />
               </div>
+              <span style={{ fontSize: '0.75rem', color: '#64748b', marginTop: '0.25rem', display: 'block' }}>
+                All email domains accepted (Gmail, Yahoo, Outlook, University email, etc.)
+              </span>
             </div>
 
             <div className="form-group">
