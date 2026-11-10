@@ -146,9 +146,6 @@ export const RegisterPage = () => {
                   required
                 />
               </div>
-              <span style={{ fontSize: '0.75rem', color: '#64748b', marginTop: '0.25rem', display: 'block' }}>
-                All email domains accepted (Gmail, Yahoo, Outlook, University email, etc.)
-              </span>
             </div>
 
             <div className="form-group">
