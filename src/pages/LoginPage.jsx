@@ -42,19 +42,6 @@ export const LoginPage = () => {
     }
   };
 
-  const handleFillDemo = (type) => {
-    if (type === 'admin') {
-      setEmail('admin@campusmarket.ng');
-      setPassword('AdminPassword123!');
-    } else if (type === 'student') {
-      setEmail('tunde@unilag.edu.ng');
-      setPassword('Password123!');
-    } else if (type === 'yabatech') {
-      setEmail('chioma@yabatech.edu.ng');
-      setPassword('Password123!');
-    }
-  };
-
   return (
     <div className="auth-page">
       <div className="auth-logo-wrap">
@@ -113,34 +100,6 @@ export const LoginPage = () => {
             {submitting ? 'Signing in...' : 'Sign In'}
           </button>
         </form>
-
-        {/* Quick Demo Logins for fast testing */}
-        <div className="demo-section">
-          <div className="demo-section-label">Quick Test Accounts</div>
-          <div className="demo-btns">
-            <button
-              type="button"
-              onClick={() => handleFillDemo('student')}
-              className="demo-btn"
-            >
-              UNILAG Student
-            </button>
-            <button
-              type="button"
-              onClick={() => handleFillDemo('yabatech')}
-              className="demo-btn"
-            >
-              YABATECH Student
-            </button>
-            <button
-              type="button"
-              onClick={() => handleFillDemo('admin')}
-              className="demo-btn"
-            >
-              Admin User
-            </button>
-          </div>
-        </div>
 
         <div className="auth-footer">
           Don't have an account yet?{' '}

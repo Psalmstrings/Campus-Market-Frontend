@@ -129,7 +129,7 @@ export default function VerifyEmailPage() {
                 type="email"
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
-                placeholder="yourname@unilag.edu.ng"
+                placeholder="e.g. you@gmail.com, you@yahoo.com, or student@unilag.edu.ng"
                 className="w-full px-4 py-2.5 text-sm border border-slate-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary-500"
               />
               <button
